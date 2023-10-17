@@ -1,7 +1,4 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_ahades_40/screens/homepage.dart';
 import 'package:flutter_application_ahades_40/utiles/appcolor.dart';
@@ -18,9 +15,9 @@ class SpalshScreen extends StatefulWidget {
 class _SpalshScreenState extends State<SpalshScreen> {
   @override
   void initState() {
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => Homepage(),
+        builder: (context) => const Homepage(),
       ));
     });
     super.initState();
@@ -42,9 +39,12 @@ class _SpalshScreenState extends State<SpalshScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SvgPicture.asset("assets/images/islamic.svg"),
-                SizedBox(
-                  height: 30,
+                SvgPicture.asset(
+                  "assets/images/islamic.svg",
+                  width: 100,
+                ),
+                const SizedBox(
+                  height: 25,
                 ),
                 AppText.splashScreen
               ],

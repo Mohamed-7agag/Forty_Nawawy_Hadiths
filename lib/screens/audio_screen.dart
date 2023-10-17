@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_string_interpolations, sized_box_for_whitespace, invalid_use_of_visible_for_testing_member, 
+// ignore_for_file: unnecessary_string_interpolations, sized_box_for_whitespace, invalid_use_of_visible_for_testing_member,
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -13,22 +13,7 @@ class AudioScreen extends StatefulWidget {
 }
 
 class _AudioScreenState extends State<AudioScreen> {
-  //
-  // AudioPlayer audioPlayer = AudioPlayer();
-  // AudioCache audioCache = AudioCache(fixedplayer : audioPlayer);
   bool isplaying = false;
-  // stopMusic() {}
-
-  // playMusic() async {
-    
-  // }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  // }
-
-  //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,10 +27,10 @@ class _AudioScreenState extends State<AudioScreen> {
           fit: BoxFit.cover,
         ),
         Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Center(
@@ -54,7 +39,7 @@ class _AudioScreenState extends State<AudioScreen> {
                   width: 65,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Container(
@@ -64,23 +49,24 @@ class _AudioScreenState extends State<AudioScreen> {
                   children: [
                     Text(
                       "${widget.name}",
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontFamily: "myfont",
-                          fontSize: 25,
+                          fontSize: 22,
                           color: Colors.green,
                           fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.right,
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 70,
               ),
               SvgPicture.asset(
                 "assets/images/Group 31.svg",
                 width: 320,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -91,7 +77,7 @@ class _AudioScreenState extends State<AudioScreen> {
                   onChanged: (val) {},
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Container(

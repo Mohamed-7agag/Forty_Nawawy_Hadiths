@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables, unused_local_variable, 
+// ignore_for_file: sort_child_properties_last,unused_local_variable,
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_ahades_40/database/database.dart';
@@ -20,7 +20,7 @@ class _HadithsScreenState extends State<HadithsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             Expanded(
@@ -34,13 +34,13 @@ class _HadithsScreenState extends State<HadithsScreen> {
                   ),
                   Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("  "),
+                          const Text("  "),
                           SvgPicture.asset(
                             "assets/images/logo.svg",
                             width: 65,
@@ -49,7 +49,7 @@ class _HadithsScreenState extends State<HadithsScreen> {
                               onTap: () {
                                 Navigator.of(context)
                                     .pushReplacement(MaterialPageRoute(
-                                  builder: (context) => Homepage(),
+                                  builder: (context) => const Homepage(),
                                 ));
                               },
                               child: SvgPicture.asset(
@@ -57,7 +57,7 @@ class _HadithsScreenState extends State<HadithsScreen> {
                                   width: 15)),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       Container(
@@ -108,18 +108,18 @@ class _HadithsScreenState extends State<HadithsScreen> {
                                     children: [
                                       Text(
                                         "${item.key}",
-                                        style: TextStyle(
-                                            fontSize: 13,
+                                        style: const TextStyle(
+                                            fontSize: 12,
                                             color: Colors.amber,
                                             fontFamily: "myfont"),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 7,
                                       ),
                                       Text(
                                         "${item.nameHadith}",
-                                        style: TextStyle(
-                                            fontSize: 24,
+                                        style: const TextStyle(
+                                            fontSize: 22,
                                             color: Colors.amber,
                                             fontFamily: "myfont",
                                             fontWeight: FontWeight.bold),
@@ -133,7 +133,7 @@ class _HadithsScreenState extends State<HadithsScreen> {
                           },
                         );
                       } else {
-                        return Center(child: CircularProgressIndicator());
+                        return const Center(child: CircularProgressIndicator());
                       }
                     },
                   ),

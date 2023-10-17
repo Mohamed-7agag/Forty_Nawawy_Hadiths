@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, unnecessary_string_interpolations, prefer_spread_collections
+// ignore_for_file: sized_box_for_whitespace, unnecessary_string_interpolations, prefer_spread_collections
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,56 +21,60 @@ class _HadithTextState extends State<HadithText> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 40,
-            ),
-            SvgPicture.asset(
-              "assets/images/logo.svg",
-              width: 65,
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            Container(
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    "${widget.kry}",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: "myfont",
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "${widget.name}",
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontFamily: "myfont",
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green),
-                  ),
-                ],
+        padding: const EdgeInsets.all(20),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 40,
               ),
-            ),
-            SizedBox(
-              height: 35,
-            ),
-            Container(
-              width: double.infinity,
-              height: 480,
-              child: SingleChildScrollView(
-                child: _convertHadith(context, widget.text),
+              SvgPicture.asset(
+                "assets/images/logo.svg",
+                width: 65,
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 25,
+              ),
+              Container(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      "${widget.kry}",
+                      style: const TextStyle(
+                          fontSize: 18,
+                          fontFamily: "myfont",
+                          fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "${widget.name}",
+                      style: const TextStyle(
+                          fontSize: 21,
+                          fontFamily: "myfont",
+                          height: 1.5,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green),
+                      textAlign: TextAlign.right,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              Container(
+                width: double.infinity,
+                height: 500,
+                child: SingleChildScrollView(
+                  child: _convertHadith(context, widget.text),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -96,7 +100,7 @@ RichText _convertHadith(BuildContext context, String text) {
   return RichText(
     textAlign: TextAlign.right,
     text: TextSpan(
-      style: TextStyle(
+      style: const TextStyle(
           fontSize: 20,
           color: Colors.green,
           fontWeight: FontWeight.w700,
@@ -107,7 +111,7 @@ RichText _convertHadith(BuildContext context, String text) {
           .map((text) => text.contains("{")
               ? TextSpan(
                   text: text,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.amber,
                       fontWeight: FontWeight.bold,
                       fontSize: 22,

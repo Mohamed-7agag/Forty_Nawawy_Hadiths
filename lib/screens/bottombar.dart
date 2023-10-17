@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, 
+// ignore_for_file: sort_child_properties_last,
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_ahades_40/model/hadith.dart';
@@ -20,7 +20,7 @@ class _BottomBarState extends State<BottomBar> {
   int currenttab = 0;
 
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = HadithText(
+  Widget currentScreen = const HadithText(
     text: "",
     name: "",
     kry: "",
@@ -44,21 +44,24 @@ class _BottomBarState extends State<BottomBar> {
                     ? TransualteScreen(
                         transulate: widget.hadith.translateNarrator,
                       )
-                    : AudioScreen(name: widget.hadith.nameHadith,mp3: widget.hadith.audioHadith,),
+                    : AudioScreen(
+                        name: widget.hadith.nameHadith,
+                        mp3: widget.hadith.audioHadith,
+                      ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Share.share(widget.hadith.textHadith,
               subject: widget.hadith.textHadith);
         },
-        child: Icon(Icons.share),
+        child: const Icon(Icons.share),
         backgroundColor: Colors.green,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         child: Container(
           height: 60,
-          margin: EdgeInsets.only(left: 12.0, right: 12.0),
+          margin: const EdgeInsets.only(left: 12.0, right: 12.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -97,7 +100,7 @@ class _BottomBarState extends State<BottomBar> {
                   color: currenttab == 1 ? Colors.green : Colors.grey,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 40.0,
               ),
               IconButton(
@@ -119,7 +122,10 @@ class _BottomBarState extends State<BottomBar> {
               IconButton(
                 onPressed: () {
                   setState(() {
-                    currentScreen = AudioScreen(name: widget.hadith.nameHadith,mp3: widget.hadith.audioHadith,);
+                    currentScreen = AudioScreen(
+                      name: widget.hadith.nameHadith,
+                      mp3: widget.hadith.audioHadith,
+                    );
                     currenttab = 3;
                   });
                 },
@@ -133,7 +139,7 @@ class _BottomBarState extends State<BottomBar> {
             ],
           ),
         ),
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         elevation: 15,
       ),
     );

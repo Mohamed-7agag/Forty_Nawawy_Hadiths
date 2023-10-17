@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables
+// ignore_for_file: sort_child_properties_last,
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_ahades_40/screens/hadiths_aud_screen.dart';
@@ -21,10 +21,10 @@ class Homepage extends StatelessWidget {
               height: double.infinity,
               fit: BoxFit.cover),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 Center(
@@ -33,29 +33,29 @@ class Homepage extends StatelessWidget {
                     width: 65,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 AppText.topHomeScreen,
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 AppText.headerHomeScreen,
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => HadithsScreen(),
+                      builder: (context) => const HadithsScreen(),
                     ));
                   },
                   child: Container(
-                    padding: EdgeInsets.only(left: 10, right: 10),
+                    padding: const EdgeInsets.only(left: 10, right: 10),
                     width: double.infinity,
                     height: 115,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                         colors: [AppColor.green2, AppColor.green1],
                       ),
                       color: AppColor.green1,
@@ -65,30 +65,33 @@ class Homepage extends StatelessWidget {
                       children: [
                         Image.asset(
                           "assets/images/quran(3).png",
-                          height: 70.0,
+                          height: 60.0,
                         ),
                         AppText.bookOneScreen,
-                        SvgPicture.asset("assets/images/one.svg")
+                        SvgPicture.asset(
+                          "assets/images/one.svg",
+                          width: 35,
+                        )
                       ],
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 30,
+                const SizedBox(
+                  height: 25,
                 ),
                 InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => HadithsScreenAudio(),
+                      builder: (context) => const HadithsScreenAudio(),
                     ));
                   },
                   child: Container(
-                    padding: EdgeInsets.only(left: 10, right: 10),
+                    padding: const EdgeInsets.only(left: 10, right: 10),
                     width: double.infinity,
                     height: 115,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                         colors: [
                           Color.fromARGB(255, 222, 115, 8),
                           Color.fromARGB(255, 239, 217, 26)
@@ -100,24 +103,27 @@ class Homepage extends StatelessWidget {
                       children: [
                         Image.asset(
                           "assets/images/play.png",
-                          height: 60.0,
+                          height: 50.0,
                         ),
                         AppText.bookTwoScreen,
-                        SvgPicture.asset("assets/images/two.svg")
+                        SvgPicture.asset(
+                          "assets/images/two.svg",
+                          width: 35,
+                        )
                       ],
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 30,
+                const SizedBox(
+                  height: 25,
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 10, right: 10),
+                  padding: const EdgeInsets.only(left: 10, right: 10),
                   width: double.infinity,
                   height: 115,
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                       colors: [AppColor.red1, AppColor.red2],
                     ),
                     borderRadius: BorderRadius.circular(15),
@@ -126,10 +132,13 @@ class Homepage extends StatelessWidget {
                     children: [
                       Image.asset(
                         "assets/images/save-instagram.png",
-                        height: 60.0,
+                        height: 50.0,
                       ),
                       AppText.bookThreeScreen,
-                      SvgPicture.asset("assets/images/three.svg")
+                      SvgPicture.asset(
+                        "assets/images/three.svg",
+                        width: 35,
+                      )
                     ],
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                   ),

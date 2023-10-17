@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_spread_collections
+// ignore_for_file: sized_box_for_whitespace, prefer_spread_collections
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -18,17 +18,17 @@ class _HadithDetailState extends State<HadithDetail> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             SvgPicture.asset(
               "assets/images/logo.svg",
               width: 65,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Container(
@@ -64,7 +64,7 @@ RichText _convertHadith(BuildContext context, String text) {
   return RichText(
     textAlign: TextAlign.right,
     text: TextSpan(
-      style: TextStyle(
+      style: const TextStyle(
           fontSize: 20,
           color: Colors.green,
           fontWeight: FontWeight.w700,
@@ -75,7 +75,7 @@ RichText _convertHadith(BuildContext context, String text) {
           .map((text) => text.contains("{")
               ? TextSpan(
                   text: text,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.amber,
                       fontWeight: FontWeight.bold,
                       fontSize: 22,

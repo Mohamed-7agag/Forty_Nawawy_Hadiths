@@ -4,7 +4,10 @@ abstract class AppText {
   static const Text splashScreen = Text(
     "ألاربعون النوويه",
     style: TextStyle(
-        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 36,fontFamily: "myfont"),
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: 25,
+        fontFamily: "myfont"),
   );
 
   static const Text topHomeScreen = Text(
@@ -13,7 +16,7 @@ abstract class AppText {
     style: TextStyle(
         color: Colors.black,
         fontWeight: FontWeight.bold,
-        fontSize: 25,
+        fontSize: 22,
         fontFamily: "myfont"),
   );
   static const Text headerHomeScreen = Text(
@@ -21,7 +24,7 @@ abstract class AppText {
     style: TextStyle(
         color: Colors.green,
         fontWeight: FontWeight.bold,
-        fontSize: 25,
+        fontSize: 20,
         fontFamily: "myfont"),
   );
 
@@ -29,7 +32,7 @@ abstract class AppText {
     "ألأحاديث الاربعون",
     style: TextStyle(
         fontFamily: "myfont",
-        fontSize: 23,
+        fontSize: 20,
         color: Colors.white,
         fontWeight: FontWeight.bold),
   );
@@ -37,7 +40,7 @@ abstract class AppText {
     "ألأحاديث الاربعون",
     style: TextStyle(
         fontFamily: "myfont",
-        fontSize: 25,
+        fontSize: 23,
         color: Colors.green,
         fontWeight: FontWeight.bold),
   );
@@ -45,7 +48,7 @@ abstract class AppText {
     "ألأستماع للأحاديث",
     style: TextStyle(
         fontFamily: "myfont",
-        fontSize: 23,
+        fontSize: 20,
         color: Colors.white,
         fontWeight: FontWeight.bold),
   );
@@ -61,7 +64,7 @@ abstract class AppText {
     "ألأحاديث المحفوظه",
     style: TextStyle(
         fontFamily: "myfont",
-        fontSize: 23,
+        fontSize: 20,
         color: Colors.white,
         fontWeight: FontWeight.bold),
   );
