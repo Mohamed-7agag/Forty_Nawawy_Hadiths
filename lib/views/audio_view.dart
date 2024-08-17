@@ -18,11 +18,25 @@ class AudioView extends StatefulWidget {
 
 class _AudioViewState extends State<AudioView> {
   late AudioPlayer player;
-
+  Duration totalDuration = Duration.zero;
+  Duration currentPosition = Duration.zero;
+  bool isplaying = false;
   @override
   void initState() {
-    player = AudioPlayer();
     super.initState();
+    player = AudioPlayer();
+
+    player.onDurationChanged.listen((Duration duration) {
+      setState(() {
+        totalDuration = duration;
+      });
+    });
+
+    player.onPositionChanged.listen((Duration position) {
+      setState(() {
+        currentPosition = position;
+      });
+    });
   }
 
   @override
@@ -39,7 +53,12 @@ class _AudioViewState extends State<AudioView> {
     await player.pause();
   }
 
-  bool isplaying = false;
+  void seekMusic(double value) {
+    final position =
+        Duration(seconds: (totalDuration.inSeconds * value).round());
+    player.seek(position);
+  }
+
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -50,11 +69,14 @@ class _AudioViewState extends State<AudioView> {
       },
       child: Scaffold(
           body: SafeArea(
-            child: Stack(
-                    alignment: Alignment.center,
-                    fit: StackFit.expand,
-                    children: [
-            SvgPicture.asset("assets/images/background.svg"),
+        child: Stack(
+          alignment: Alignment.center,
+          fit: StackFit.expand,
+          children: [
+            SvgPicture.asset(
+              "assets/images/background.svg",
+              fit: BoxFit.fill,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
@@ -76,7 +98,8 @@ class _AudioViewState extends State<AudioView> {
                               ),
                               IconButton(
                                 onPressed: () => Navigator.pop(context),
-                                icon: const Icon(Icons.arrow_forward_ios_rounded),
+                                icon:
+                                    const Icon(Icons.arrow_forward_ios_rounded),
                               )
                             ],
                           ),
@@ -109,13 +132,29 @@ class _AudioViewState extends State<AudioView> {
                   const SizedBox(
                     height: 60,
                   ),
-                  Container(
-                    width: 400,
-                    child: Slider(
-                      activeColor: AppColor.yellow1,
-                      value: 0.5,
-                      onChanged: (val) {},
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        currentPosition.toString().split(".")[0],
+                        style: const TextStyle(fontSize: 9),
+                      ),
+                      Expanded(
+                        child: Slider(
+                          activeColor: AppColor.yellow1,
+                          value: totalDuration.inSeconds > 0
+                              ? currentPosition.inSeconds /
+                                  totalDuration.inSeconds
+                              : 0.0,
+                          onChanged: (val) {
+                            seekMusic(val);
+                          },
+                        ),
+                      ),
+                      Text(
+                        totalDuration.toString().split(".")[0],
+                        style: const TextStyle(fontSize: 9),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 25,
@@ -151,9 +190,9 @@ class _AudioViewState extends State<AudioView> {
                 ],
               ),
             )
-                    ],
-                  ),
-          )),
+          ],
+        ),
+      )),
     );
   }
 }
