@@ -15,23 +15,4 @@
 ![3](https://github.com/user-attachments/assets/0d890e67-4918-453f-84f2-7059d56cfcf1)
 
 
-## 🛠 Dependencies
-
-```pubspec.yaml
-  date_picker_timeline: 
-  flutter_bloc: 
-  flutter_screenutil: 
-  fluttertoast: 
-  get_it: 
-  google_fonts: 
-  intl: 
-  shared_preferences: 
-  smooth_page_indicator: 
-  sqflite: 
-  flutter_local_notifications: 
-  timezone: 
-  flutter_timezone: 
-  workmanager: 
-```
-
 
