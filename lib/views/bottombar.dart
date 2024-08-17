@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_ahades_40/model/hadith.dart';
-import 'package:flutter_application_ahades_40/screens/audio_screen.dart';
-import 'package:flutter_application_ahades_40/screens/hadith_detail.dart';
-import 'package:flutter_application_ahades_40/screens/hadith_text.dart';
-import 'package:flutter_application_ahades_40/screens/transulate_screen.dart';
+import 'package:flutter_application_ahades_40/views/audio_screen.dart';
+import 'package:flutter_application_ahades_40/views/hadith_detail.dart';
+import 'package:flutter_application_ahades_40/views/hadith_text.dart';
+import 'package:flutter_application_ahades_40/views/transulate_screen.dart';
 import 'package:share/share.dart';
 
 class BottomBar extends StatefulWidget {

@@ -1,6 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_ahades_40/screens/homepage.dart';
+import 'package:flutter_application_ahades_40/views/home_view.dart';
 import 'package:flutter_application_ahades_40/utiles/appcolor.dart';
 import 'package:flutter_application_ahades_40/utiles/appstring.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,12 +17,15 @@ class SpalshScreen extends StatefulWidget {
 class _SpalshScreenState extends State<SpalshScreen> {
   @override
   void initState() {
-    Timer(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const Homepage(),
-      ));
-    });
     super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      if (context.mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeView()),
+        );
+      }
+    });
   }
 
   @override

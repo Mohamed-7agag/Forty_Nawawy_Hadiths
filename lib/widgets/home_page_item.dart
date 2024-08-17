@@ -23,12 +23,12 @@ class HomePageItem extends StatelessWidget {
       child: SizedBox(
           height: 150,
           child: Stack(
-            alignment: Alignment.center,
+            alignment: Alignment.centerRight,
             clipBehavior: Clip.none,
             children: [
               Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 7),
                 width: double.infinity,
                 height: 100,
                 decoration: BoxDecoration(
@@ -40,10 +40,11 @@ class HomePageItem extends StatelessWidget {
                 child: title,
               ),
               Positioned(
-                top: -15,
+                top: -10,
+                right: 20,
                 child: Image.asset(
                   image,
-                  height: 80.0,
+                  height: 65,
                 ),
               )
             ],

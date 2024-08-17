@@ -2,7 +2,7 @@
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_ahades_40/screens/hadiths_aud_screen.dart';
+import 'package:flutter_application_ahades_40/views/audios_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AudioScreen2 extends StatefulWidget {
@@ -75,7 +75,7 @@ late AudioPlayer player;
                     InkWell(
                         onTap: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => const HadithsScreenAudio(),
+                            builder: (context) => const AudiosGridView(),
                           ));
                         },
                         child: SvgPicture.asset(
