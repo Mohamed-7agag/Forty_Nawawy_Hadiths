@@ -43,7 +43,7 @@ class HomeView extends StatelessWidget {
                   colors: [AppColor.green2, AppColor.green1],
                   destScreen: HadithsGridView(),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 10),
                 const HomePageItem(
                   title: AppText.bookTwoScreen,
                   image: "assets/images/play@3x.png",

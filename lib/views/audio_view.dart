@@ -3,6 +3,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_ahades_40/model/hadith.dart';
+import 'package:flutter_application_ahades_40/utiles/appcolor.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AudioView extends StatefulWidget {
@@ -111,7 +112,7 @@ class _AudioViewState extends State<AudioView> {
                   Container(
                     width: 400,
                     child: Slider(
-                      activeColor: Colors.yellow,
+                      activeColor: AppColor.yellow1,
                       value: 0.5,
                       onChanged: (val) {},
                     ),
@@ -124,7 +125,7 @@ class _AudioViewState extends State<AudioView> {
                     height: 65,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: Colors.yellow,
+                      color: AppColor.yellow1,
                     ),
                     child: IconButton(
                       onPressed: () {

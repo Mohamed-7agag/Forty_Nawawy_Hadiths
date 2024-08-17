@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_ahades_40/database/database.dart';
 import 'package:flutter_application_ahades_40/model/hadith.dart';
+import 'package:flutter_application_ahades_40/utiles/appcolor.dart';
 import 'package:flutter_application_ahades_40/views/audio_view.dart';
 import 'package:flutter_application_ahades_40/utiles/appstring.dart';
 import 'package:flutter_svg/svg.dart';
@@ -87,7 +88,7 @@ class AudiosGridView extends StatelessWidget {
                                       "${item.key}",
                                       style: const TextStyle(
                                         fontSize: 9,
-                                        color: Colors.amber,
+                                        color: AppColor.yellow1,
                                         fontFamily: "myfont",
                                       ),
                                     ),
@@ -96,7 +97,7 @@ class AudiosGridView extends StatelessWidget {
                                       "${item.nameHadith}",
                                       style: const TextStyle(
                                         fontSize: 12,
-                                        color: Colors.amber,
+                                        color: AppColor.yellow1,
                                         fontFamily: "myfont",
                                       ),
                                       textAlign: TextAlign.center,
