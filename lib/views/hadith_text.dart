@@ -16,62 +16,45 @@ class _HadithTextState extends State<HadithText> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        padding: const EdgeInsets.all(20),
+      body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 40,
-              ),
-              SvgPicture.asset(
-                "assets/images/logo.svg",
-                width: 65,
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              Container(
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      "${widget.hadith.key}",
-                      style: const TextStyle(
-                          fontSize: 18,
-                          fontFamily: "myfont",
-                          fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "${widget.hadith.nameHadith}",
-                      style: const TextStyle(
-                          fontSize: 21,
-                          fontFamily: "myfont",
-                          height: 1.5,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.green),
-                      textAlign: TextAlign.right,
-                    ),
-                  ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                const SizedBox(height: 30),
+                Align(
+                  alignment: Alignment.center,
+                  child: SvgPicture.asset(
+                    "assets/images/logo.svg",
+                    width: 65,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              Container(
-                width: double.infinity,
-                height: 500,
-                child: SingleChildScrollView(
-                  child: convertHadith(context, widget.hadith.textHadith),
+                const SizedBox(height: 25),
+                Text(
+                  "${widget.hadith.key}",
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontFamily: "myfont",
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 5),
+                Text(
+                  "${widget.hadith.nameHadith}",
+                  style: const TextStyle(
+                      fontSize: 21,
+                      fontFamily: "myfont",
+                      height: 1.5,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green),
+                  textAlign: TextAlign.right,
+                ),
+                const SizedBox(height: 25),
+                convertHadith(context, widget.hadith.textHadith),
+              ],
+            ),
           ),
         ),
       ),

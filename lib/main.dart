@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors,
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_ahades_40/views/splashscreen.dart';
+import 'package:flutter_application_ahades_40/views/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: '40_Ahadiths',
-      home: SpalshScreen(),
+      home: SplashView(),
     );
   }
 }

@@ -3,69 +3,62 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_ahades_40/database/database.dart';
 import 'package:flutter_application_ahades_40/model/hadith.dart';
-import 'package:flutter_application_ahades_40/views/audio_screen2.dart';
+import 'package:flutter_application_ahades_40/views/audio_view.dart';
 import 'package:flutter_application_ahades_40/utiles/appstring.dart';
 import 'package:flutter_svg/svg.dart';
 
-class AudiosGridView extends StatefulWidget {
+class AudiosGridView extends StatelessWidget {
   const AudiosGridView({super.key});
 
-  @override
-  State<AudiosGridView> createState() => _AudiosGridViewState();
-}
-
-class _AudiosGridViewState extends State<AudiosGridView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
+      body: Stack(
+        fit: StackFit.expand,
         children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                const SizedBox(height: 30),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text("     "),
-                      SvgPicture.asset(
-                        "assets/images/logo.svg",
-                        width: 65,
+          SvgPicture.asset("assets/images/background.svg"),
+          Column(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    const SizedBox(height: 30),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text("     "),
+                          SvgPicture.asset(
+                            "assets/images/logo.svg",
+                            width: 65,
+                          ),
+                          IconButton(
+                            onPressed: () => Navigator.pop(context),
+                            icon: const Icon(Icons.arrow_forward_ios_rounded),
+                          )
+                        ],
                       ),
-                      IconButton(
-                        onPressed: () => Navigator.pop(context),
-                        icon: const Icon(Icons.arrow_forward_ios_rounded),
-                      )
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 10),
+                    const Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: AppText.header2,
+                    )
+                  ],
                 ),
-                const SizedBox(height: 10),
-                const Padding(
-                  padding: EdgeInsets.only(right: 20),
-                  child: AppText.header2,
-                )
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: Stack(
-              children: [
-                SvgPicture.asset(
-                  "assets/images/background.svg",
-                  width: double.infinity,
-                  fit: BoxFit.fill,
-                ),
-                FutureBuilder(
+              ),
+              Expanded(
+                flex: 3,
+                child: FutureBuilder(
                   future: MyData.getAlldata(),
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
                     if (snapshot.hasData) {
                       return GridView.builder(
+                        padding: EdgeInsets.zero,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
@@ -78,10 +71,7 @@ class _AudiosGridViewState extends State<AudiosGridView> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => AudioScreen2(
-                                    name: item.nameHadith,
-                                    mp3: item.audioHadith,
-                                  ),
+                                  builder: (context) => AudioView(hadith: item),
                                 ),
                               );
                             },
@@ -119,12 +109,14 @@ class _AudiosGridViewState extends State<AudiosGridView> {
                         },
                       );
                     } else {
-                      return const Center(child: CircularProgressIndicator());
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
                     }
                   },
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),

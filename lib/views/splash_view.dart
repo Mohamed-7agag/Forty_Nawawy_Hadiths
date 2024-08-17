@@ -7,14 +7,14 @@ import 'package:flutter_application_ahades_40/utiles/appcolor.dart';
 import 'package:flutter_application_ahades_40/utiles/appstring.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SpalshScreen extends StatefulWidget {
-  const SpalshScreen({super.key});
+class SplashView extends StatefulWidget {
+  const SplashView({super.key});
 
   @override
-  State<SpalshScreen> createState() => _SpalshScreenState();
+  State<SplashView> createState() => _SplashViewState();
 }
 
-class _SpalshScreenState extends State<SpalshScreen> {
+class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
