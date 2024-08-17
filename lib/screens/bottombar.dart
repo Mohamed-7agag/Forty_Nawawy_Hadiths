@@ -1,4 +1,4 @@
-// ignore_for_file: sort_child_properties_last,
+// ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_ahades_40/model/hadith.dart';
@@ -20,23 +20,18 @@ class _BottomBarState extends State<BottomBar> {
   int currenttab = 0;
 
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = const HadithText(
-    text: "",
-    name: "",
-    kry: "",
-  );
 
   @override
   Widget build(BuildContext context) {
-    // currentScreen = HadithText(text: widget.hadith.textHadith);
+    Widget currentScreen = HadithText(
+      hadith: widget.hadith,
+    );
     return Scaffold(
       body: PageStorage(
         bucket: bucket,
         child: currenttab == 0
             ? HadithText(
-                text: widget.hadith.textHadith,
-                name: widget.hadith.nameHadith,
-                kry: widget.hadith.key,
+                hadith: widget.hadith,
               )
             : currenttab == 1
                 ? HadithDetail(explain: widget.hadith.explanationHadith)
@@ -54,25 +49,24 @@ class _BottomBarState extends State<BottomBar> {
           Share.share(widget.hadith.textHadith,
               subject: widget.hadith.textHadith);
         },
-        child: const Icon(Icons.share),
+        shape: const OvalBorder(),
         backgroundColor: Colors.green,
+        child: const Icon(Icons.share, color: Colors.white),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
+        height: 68,
+        shape: const CircularNotchedRectangle(),
         child: Container(
-          height: 60,
-          margin: const EdgeInsets.only(left: 12.0, right: 12.0),
+          margin: const EdgeInsets.only(left: 6.0, right: 6.0),
           child: Row(
-            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               IconButton(
                 onPressed: () {
                   setState(() {
                     currentScreen = HadithText(
-                      text: widget.hadith.textHadith,
-                      name: widget.hadith.nameHadith,
-                      kry: widget.hadith.key,
+                      hadith: widget.hadith,
                     );
                     currenttab = 0;
                   });
@@ -80,7 +74,6 @@ class _BottomBarState extends State<BottomBar> {
                 iconSize: 27.0,
                 icon: Icon(
                   Icons.book,
-                  size: 30,
                   color: currenttab == 0 ? Colors.green : Colors.grey,
                 ),
               ),
@@ -96,7 +89,6 @@ class _BottomBarState extends State<BottomBar> {
                 iconSize: 27.0,
                 icon: Icon(
                   Icons.library_books,
-                  size: 30,
                   color: currenttab == 1 ? Colors.green : Colors.grey,
                 ),
               ),
@@ -115,7 +107,6 @@ class _BottomBarState extends State<BottomBar> {
                 iconSize: 27.0,
                 icon: Icon(
                   Icons.collections_bookmark,
-                  size: 30,
                   color: currenttab == 2 ? Colors.green : Colors.grey,
                 ),
               ),
@@ -132,15 +123,12 @@ class _BottomBarState extends State<BottomBar> {
                 iconSize: 27.0,
                 icon: Icon(
                   Icons.volume_up,
-                  size: 30,
                   color: currenttab == 3 ? Colors.green : Colors.grey,
                 ),
               ),
             ],
           ),
         ),
-        shape: const CircularNotchedRectangle(),
-        elevation: 15,
       ),
     );
   }

@@ -51,7 +51,7 @@ class _HadithsScreenAudioState extends State<HadithsScreenAudio> {
                               },
                               child: SvgPicture.asset(
                                   "assets/images/arrow-right.svg",
-                                  width: 15)),
+                                  width: 14)),
                         ],
                       ),
                       const SizedBox(
@@ -109,7 +109,7 @@ class _HadithsScreenAudioState extends State<HadithsScreenAudio> {
                                       Text(
                                         "${item.key}",
                                         style: const TextStyle(
-                                            fontSize: 12,
+                                            fontSize: 9,
                                             color: Colors.amber,
                                             fontFamily: "myfont"),
                                       ),
@@ -119,11 +119,11 @@ class _HadithsScreenAudioState extends State<HadithsScreenAudio> {
                                       Text(
                                         "${item.nameHadith}",
                                         style: const TextStyle(
-                                            fontSize: 22,
-                                            color: Colors.amber,
-                                            fontFamily: "myfont",
-                                            fontWeight: FontWeight.bold),
-                                        textScaleFactor: 0.5,
+                                          fontSize: 12,
+                                          color: Colors.amber,
+                                          fontFamily: "myfont",
+                                        ),
+                                        textAlign: TextAlign.center,
                                       ),
                                     ],
                                   )

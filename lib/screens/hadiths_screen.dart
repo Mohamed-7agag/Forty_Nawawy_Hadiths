@@ -19,25 +19,25 @@ class _HadithsScreenState extends State<HadithsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Expanded(
-              child: Stack(
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/background.svg",
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                  Column(
-                    children: [
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      Row(
+      body: Column(
+        children: [
+          Expanded(
+            child: Stack(
+              children: [
+                SvgPicture.asset(
+                  "assets/images/background.svg",
+                  width: double.infinity,
+                  height: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+                Column(
+                  children: [
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text("  "),
@@ -54,94 +54,96 @@ class _HadithsScreenState extends State<HadithsScreen> {
                               },
                               child: SvgPicture.asset(
                                   "assets/images/arrow-right.svg",
-                                  width: 15)),
+                                  width: 14)),
                         ],
                       ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Container(
-                        alignment: Alignment.topRight,
-                        child: AppText.header1,
-                      )
-                    ],
-                  ),
-                ],
-              ),
-              flex: 1,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(right: 20),
+                      alignment: Alignment.topRight,
+                      child: AppText.header1,
+                    )
+                  ],
+                ),
+              ],
             ),
-            Expanded(
-              flex: 3,
-              child: Stack(
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/background.svg",
-                    width: double.infinity,
-                    height: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                  FutureBuilder(
-                    future: Mydata.getAlldata(),
-                    builder: (BuildContext context, AsyncSnapshot snapshot) {
-                      if (snapshot.hasData) {
-                        return GridView.builder(
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                          ),
-                          itemCount: snapshot.data.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            Hadith item = snapshot.data[index];
-                            return InkWell(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => BottomBar(hadith: item),
-                                ));
-                              },
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Image.asset("assets/images/Path 40.png"),
-                                  SvgPicture.asset("assets/images/Path 41.svg"),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "${item.key}",
-                                        style: const TextStyle(
-                                            fontSize: 12,
-                                            color: Colors.amber,
-                                            fontFamily: "myfont"),
-                                      ),
-                                      const SizedBox(
-                                        height: 7,
-                                      ),
-                                      Text(
-                                        "${item.nameHadith}",
-                                        style: const TextStyle(
-                                            fontSize: 22,
-                                            color: Colors.amber,
-                                            fontFamily: "myfont",
-                                            fontWeight: FontWeight.bold),
-                                        textScaleFactor: 0.5,
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            );
-                          },
-                        );
-                      } else {
-                        return const Center(child: CircularProgressIndicator());
-                      }
-                    },
-                  ),
-                ],
-              ),
+            flex: 1,
+          ),
+          Expanded(
+            flex: 3,
+            child: Stack(
+              children: [
+                SvgPicture.asset(
+                  "assets/images/background.svg",
+                  width: double.infinity,
+                  height: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+                FutureBuilder(
+                  future: Mydata.getAlldata(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData) {
+                      return GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                        ),
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          Hadith item = snapshot.data[index];
+                          return InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => BottomBar(hadith: item),
+                              ));
+                            },
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Image.asset("assets/images/Path 40.png"),
+                                SvgPicture.asset("assets/images/Path 41.svg"),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "${item.key}",
+                                      style: const TextStyle(
+                                          fontSize: 9,
+                                          color: Colors.amber,
+                                          fontFamily: "myfont"),
+                                    ),
+                                    const SizedBox(
+                                      height: 7,
+                                    ),
+                                    Text(
+                                      "${item.nameHadith}",
+                                      style: const TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.amber,
+                                          fontFamily: "myfont",
+                                          ),
+                                          textAlign: TextAlign.center,
+                                     
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    } else {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                  },
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

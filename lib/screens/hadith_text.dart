@@ -1,14 +1,11 @@
 // ignore_for_file: sized_box_for_whitespace, unnecessary_string_interpolations, prefer_spread_collections
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_ahades_40/model/hadith.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HadithText extends StatefulWidget {
-  final String text;
-  final String name;
-  final String kry;
-  const HadithText(
-      {super.key, required this.text, required this.name, required this.kry});
+  final Hadith hadith;
+  const HadithText({super.key, required this.hadith});
 
   @override
   State<HadithText> createState() => _HadithTextState();
@@ -41,7 +38,7 @@ class _HadithTextState extends State<HadithText> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      "${widget.kry}",
+                      "${widget.hadith.key}",
                       style: const TextStyle(
                           fontSize: 18,
                           fontFamily: "myfont",
@@ -51,7 +48,7 @@ class _HadithTextState extends State<HadithText> {
                       height: 5,
                     ),
                     Text(
-                      "${widget.name}",
+                      "${widget.hadith.nameHadith}",
                       style: const TextStyle(
                           fontSize: 21,
                           fontFamily: "myfont",
@@ -70,7 +67,7 @@ class _HadithTextState extends State<HadithText> {
                 width: double.infinity,
                 height: 500,
                 child: SingleChildScrollView(
-                  child: _convertHadith(context, widget.text),
+                  child: _convertHadith(context, widget.hadith.textHadith),
                 ),
               ),
             ],
