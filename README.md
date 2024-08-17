@@ -2,24 +2,17 @@
 
 ## 🚀 Getting Started
 
-- Up-To-Do App is designed to help users organize their tasks efficiently and stay productive throughout their day. Whether it's managing daily tasks, work assignments, or personal goals.
-- App notifies the user of the task before starting using `flutter_local_notifications`.
-- Our App reminds users every day at 9 PM ⏰to write tasks for tomorrow.
-
-## 🤳 Screens
-
-- **Splash Screen:** Wait for 3 seconds then navigate to `On-Boarding Screens`. 
-- **On-Boarding Screens:** Provide a seamless and engaging introduction to our app.
-- **Home Screen:** The User can discover all tasks that he added before and can change the status to `COMPLETED` or `DELETED`.
-- **Add Task:** User can add task details like `title`, `note`, `date`, `start time`, and `end time`.
+-An Islamic educational app that provides the complete collection of the 40 Nawawi Hadiths, offering translations, explanations, and audio recitations to enhance understanding.
 
 <hr>
 
 ## 📱 UI
 
-![2](https://github.com/AmmarAgeeza/Up-To-Do-App/assets/72443818/bd589d06-bb71-4010-9899-709ead2d9545)
+![2](https://github.com/user-attachments/assets/9d4f6748-cc49-4ee2-802d-18a59bdd4f77))
 
-![3](https://github.com/AmmarAgeeza/Up-To-Do-App/assets/72443818/a0583e2a-5a9e-4852-ac85-1bd9ec0d312b)
+![2](https://github.com/user-attachments/assets/e5048167-e5a2-4b1f-bd57-3294c22140b3)
+
+![3](https://github.com/user-attachments/assets/0d890e67-4918-453f-84f2-7059d56cfcf1)
 
 
 ## 🛠 Dependencies
